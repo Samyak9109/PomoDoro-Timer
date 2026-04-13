@@ -127,7 +127,6 @@ Repeat until tasks are ✅ done!
 
 These are vibe-based, no promises 😄
 
-- [ ] 🌙 Dark / Light mode toggle
 - [ ] 📊 Productivity analytics dashboard
 - [ ] 🔁 Auto-start break after Pomodoro
 - [ ] 🚫 Website blocker during focus sessions
