@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <title>FocusFlow</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Outfit:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="popup.css"/>
+</head>
+<body>
+
+<div class="app" id="app">
+
+  <!-- ── Top Bar ───────────────────────────────── -->
+  <div class="topbar">
+    <div class="brand">
+      <span class="brand-dot"></span>
+      FOCUSFLOW
+    </div>
+    <div class="topbar-right">
+      <div class="streak-badge" id="streakBadge" title="Pomodoros completed">
+        <span id="pomoCount">0</span>
+        <span class="streak-icon">🍅</span>
+      </div>
+      <button class="icon-btn" id="soundBtn" title="Toggle sound">
+        <svg id="soundIcon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5">
+          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+          <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+          <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- ── Phase Tabs ────────────────────────────── -->
+  <div class="tabs">
+    <button class="tab active" data-phase="work" id="tabWork">FOCUS</button>
+    <button class="tab" data-phase="break" id="tabBreak">BREAK</button>
+  </div>
+
+  <!-- ── Timer ─────────────────────────────────── -->
+  <div class="timer-section">
+    <div class="ring-wrap">
+      <svg class="ring-svg" viewBox="0 0 180 180">
+        <circle class="ring-track" cx="90" cy="90" r="78"/>
+        <circle class="ring-fill" id="ringFill" cx="90" cy="90" r="78"
+          stroke-dasharray="490" stroke-dashoffset="0"/>
+        <!-- Tick marks -->
+        <g id="ticks"></g>
+      </svg>
+      <div class="ring-center">
+        <div class="time-display" id="timeDisplay">25:00</div>
+        <div class="phase-label" id="phaseLabel">READY</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Break Options (shown in break tab) ─────── -->
+  <div class="break-row" id="breakRow" style="display:none">
+    <span class="break-label-text">BREAK DURATION</span>
+    <div class="break-opts">
+      <button class="break-opt active" data-mins="5">5m</button>
+      <button class="break-opt" data-mins="15">15m</button>
+      <button class="break-opt" data-mins="30">30m</button>
+    </div>
+  </div>
+
+  <!-- ── Controls ──────────────────────────────── -->
+  <div class="controls">
+    <button class="btn-reset" id="resetBtn" title="Reset timer">
+      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5">
+        <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path>
+        <path d="M3 3v5h5"></path>
+      </svg>
+    </button>
+    <button class="btn-main" id="startBtn">START</button>
+  </div>
+
+  <!-- ── Divider ────────────────────────────────── -->
+  <div class="section-divider">
+    <span>TASKS</span>
+  </div>
+
+  <!-- ── Task Input ─────────────────────────────── -->
+  <div class="task-add">
+    <input type="text" id="taskInput" class="task-name-input" placeholder="Task name…" maxlength="60"/>
+    <div class="task-add-bottom">
+      <div class="pomo-input-wrap">
+        <span class="pomo-input-label">🍅</span>
+        <input type="number" id="pomoInput" class="pomo-count-input" value="1" min="1" max="20"/>
+      </div>
+      <button class="btn-add" id="addTaskBtn">+ ADD</button>
+    </div>
+  </div>
+
+  <!-- ── Task List ──────────────────────────────── -->
+  <div class="task-list" id="taskList">
+    <div class="empty-state" id="emptyState">
+      <span>No tasks yet. Add one above ↑</span>
+    </div>
+  </div>
+
+</div>
+
+<script src="popup.js"></script>
+</body>
+</html>
